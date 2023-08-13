@@ -1,0 +1,69 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21-01
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 1) Manejo de Eventos con DOM HTML y JS.
+-Lo que vamos a hacer es asignar un evento a nuestro titulo, vammos a asignar el evento "onclick" por ello cuando presionemos sobre el titulo lo que programaremos es que cambie su texto a "Nuevo Titulo".
+
+- ACLARACIONES:
+
+(1*)- Aqui es donde se crea el evento de onclick sobre el objeto h1, y para acceder a un objeto debemos llamar a innerHTML mediante la sentencia "this." para luego modificarlo. Observamos que para instanciar onclick usamos comillas dobles forma externa y para dar el nuevo valor de h1 comillas simples de forma interna; entonces tienen que estar alternados/invertidos y no usar la mismas comillas para ambas sentencias.
+
+(2*) - Vemos que console.log nos muestra que valor tiene titulo, y claro en el se aloja todo el valor de h1 por completo. Es decir que esta apuntando a ese objeto y podremos a todos los atributos y metodos de el como lo hicimos. Muestra:
+
+<h1 onclick="cambiarTexto(this)"> Cambiamos el titulo </h1>
+
+(3*) - Es este otro console.log nos muestra el valor que contiene h1 en ese momento ANTES de realizar la modificacion de texto, osea muestra: Manejo DOM con Javascript
+
+(4*) - Por ultimo, vemos que h1 cambio ya su contenido en ese punto, a: Cambiamos el titulo
+
+-----------------------------------------------------------------------------------------
+
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+    <!-- (*1)
+    - Antes haciamos declarado la asignacion de cambio directamente en la declaracion del objeto. Pero esto no es comun verlo ni es una buena practiva, por ello es que creamos una funcion para alli realizarlo. Comento como estaba antes para ver el cambio.
+
+    <h1 onclick="this.innerHTML='Nuevo Titulo'"> Manejo DOM con Javascript </h1>
+
+    -->
+    <h1 onclick="cambiarTexto(this)"> Manejo DOM con Javascript </h1>
+
+    <!--Aca llamamos a la funcion cambiarTexto, este apunta al objeto h1 porque esta declarado (this). Entonces todos los atributos/metodos de h1 pasaran a la funcion atravez del paramentro titulo que tiene, y desde alli declaramos el cambio de titulo.-->
+
+    </br>
+    
+        <script>
+
+            function cambiarTexto(titulo)
+            {   
+                console.log(titulo); //Mostramos, a donde apunta titulo en este momento (2*).
+                console.log(titulo.innerHTML); //Mostramos, a donde apunta titulo en este otro momento (3*).
+
+                titulo.innerHTML=' Cambiamos el titulo '; //Sentencia del cambio de titulo
+
+                console.log(titulo.innerHTML); //Mostramos, a donde apunta titulo en este ultimo momento (4*).
+            }
+
+        </script>
+</body>
+
+</html>

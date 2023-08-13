@@ -1,0 +1,52 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 20-12
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 11) Cambio del Valor de Atributos HTML con JavaScript
+
+-Lo que haremos es mediante un boton con evento onclick, cambiar el valor del atributo source (src). Es decir que llamaremos a otra ruta distinta a la que estaba, mostrando la imagen de JS a la iamgen HTML5.
+-Cabe aclarar algo obvio, pero tambien hubiera aplicado si hubiesemos tenido las imagenes de (JS/HTML5) dentro de la carpeta 20-12.
+
+- ACLARACIONES:
+
+
+-----------------------------------------------------------------------------------------
+
+(1*) 
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+    <h1 id='titulo'>Manejo DOM con Javascript</h1>
+
+    <button onclick="mostrar()">Mostrar</button>
+
+    </br>
+    <img id='imagen' src='http://globalmentoring.com.mx/imagenes/javascript.png'/>
+        <script>
+
+            function mostrar()
+            {
+                document.getElementById('imagen').src='http://globalmentoring.com.mx/imagenes/html5.png';
+            }
+
+        </script>
+</body>
+
+</html>

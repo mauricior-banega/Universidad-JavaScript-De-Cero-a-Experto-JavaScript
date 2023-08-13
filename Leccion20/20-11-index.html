@@ -1,0 +1,52 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 20-11
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 10) Cambio de Contenido del DOM HTML con JavaScript.
+-Lo que haremos es mediante un boton con evento onclick, cambiaremos el contenido del h1 "Manejo DOM con Javascript" por "Nuevo titulo". Esto lo hacemos aplicando como ya vimos antes, la propiedad innerHTML e igualando al contenido nuevo que valla a tener posteriormente demos click.
+
+- ACLARACIONES:
+
+
+-----------------------------------------------------------------------------------------
+
+(1*) 
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+    <h1 id='titulo'>Manejo DOM con Javascript</h1>
+
+    <button onclick="mostrar()">Mostrar</button>
+
+    </br>
+        <script>
+
+            function mostrar()
+            {
+                //document.getElementById('titulo').innerHTML = 'Nuevo titulo';
+                document.getElementById('titulo').innerHTML += '</br> Nuevo titulo';
+            }
+
+            //esta es la funcion que ejecuta el evento del boton onclick, cambiando el titulo. Ahora para concatenar ambos valores de h1, simplemento agregamos un signo + al aldo del =. Comentamos anterior y dejamos el del ultimo ej.
+
+        </script>
+</body>
+
+</html>

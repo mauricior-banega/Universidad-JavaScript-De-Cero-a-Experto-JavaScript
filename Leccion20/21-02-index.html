@@ -1,0 +1,70 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21-02
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 2) Asociar Eventos a Elementos HTML con JS
+
+-Haremos lo mismo que en el ejercicio anterior pero directamente en JS.
+
+-Asignamos un id a titulo, luego lo llamamos mediante document.getElementById y especificamos que llamara a la funcion cambiarTexto cuando se ejecute con el evento onclick.
+
+-Luego la funcion realizara el mismo llamado al titulo mediante getElementById pero declaramos innerHTML para reescribir el valor mediante el = 'Nuevo titulo'.
+
+-Por ultimo da un ejemplo mas, indicando que de esa manera se puede agregar mas elementos en HTML, crea un div del cual le asigna un id, que usara posteriormenete para darle contenido mediante innerHTML. Tambien siendo ejecutada la funcion cambiarTexto.
+
+- ACLARACIONES:
+
+(1*) - Como la funcion cambiarTexto es una funcion tipo callback, en la declaracion de una linea no es necesario poner ().
+
+
+
+-----------------------------------------------------------------------------------------
+
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+
+    <!-- -->
+
+    <h1 id="titulo"> Manejo DOM con Javascript </h1>
+
+    <!---->
+
+    </br>
+
+    <div id='mostrar'></div> <!--Div Vacio-->
+    
+        <script>
+
+            document.getElementById('titulo').onclick = cambiarTexto; //F()-Callback(1*)
+
+            function cambiarTexto()
+            {
+                //Declaracion que modifica a h1.
+                document.getElementById('titulo').innerHTML = 'Nuevo titulo';
+                
+                //Declaracion que agrega/modifica (noseria porque vacio) en el div.
+                document.getElementById('mostrar').innerHTML = 'Nuevo contenido';
+            }
+
+        </script>
+</body>
+
+</html>

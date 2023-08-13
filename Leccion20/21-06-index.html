@@ -1,0 +1,71 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21-06
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 6) Eventos onmousedown, onmouseup y onclick con  JS.
+
+-Del ejemplo anterior, aplicamos lo mismo para esta leccion, pero reemplazamos los eventos para explicar los de onmousedown/onmouseup. Lo que realiza el evento "onmousedown" es que al dar click "pero no solandolo" osea manteniendolo apretado, y "onmouseup" cuando se suelta el click por completo, cuando dejamos de mantenerlo apretado seria. Bueno, para este practico uno hara que cambie el color a rojo al soltar en azul.
+
+-Similar al practico anterior pero con otro ejemplo de evento. Añade tambien el evento onlick para dejarlo ejemplificado, como 3er evento.
+
+- ACLARACIONES:
+
+(1*) - 
+
+
+-----------------------------------------------------------------------------------------
+
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+
+    <!-- En h1 creamos el id y los 2 eventos, a los que se le llamara una funcion para cada caso. -->
+
+    <h1 id="titulo" onmousedown="rojo(this)" onmouseup="azul(this)" onclick="verde(this)"> Manejo DOM con Javascript </h1>
+
+    </br>
+
+
+        <script>
+
+           function rojo(titulo) //Funcion que cambia de color a rojo.
+           {    
+               console.log('onmousedown cambio a rojo');
+               titulo.style.color = 'red';
+           }
+
+           function azul(titulo) //Funcion que cambia de color a azul.
+           {
+               console.log('onmouseup cambio a azul');
+               titulo.style.color = 'blue';
+           }
+
+           function verde(titulo) //Funcion que cambia de color a verde
+           {    
+               console.log('onclick cambio a verde');
+               titulo.style.color = 'green';
+           }
+
+           //Creamos las impresiones por consola para mostrar como se ejecutaron cada uno de los eventos. Por ej el de cambio de color a azul pasa tan rapido que no se percibe, por eso aplicando este muestreo por consola podemos comprobar y ver que si se ejecuto en cambio de ese color azul pero no se percibio visualmente.
+           
+        </script>
+</body>
+
+</html>

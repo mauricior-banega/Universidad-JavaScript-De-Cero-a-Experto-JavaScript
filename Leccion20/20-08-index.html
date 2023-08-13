@@ -1,0 +1,66 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 20-08
+
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 8) Manejo de Formularios en JS
+
+- ACLARACIONES: 
+
+-Seguimos con el mismo index (20-07) para seguir ejemplificando los soguientes temas.
+-----------------------------------------------------------------------------------------
+
+(1*)
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Ejemplo DOM con Javascript</title>
+
+</head>
+<body>  
+    <!-- Creamos un formulario, le damos un identificador y cremos nombre/apellido.-->
+    <form  id='formulario'> 
+        Nombre: <input type='text' name='nombre' value='Juan'/>
+    </br>
+        Apellido: <input type='text' name='apellido' value='Perez'/>
+    </br>
+
+    </form>
+
+    <!--Creamos un boton con evento "onclick", donde al clickear realizara algo, que seria en este caso llamar a la funcion mostrarvalores().-->
+    <button onclick='mostrarValores()'>Mostrar</button>
+
+    <div id='valores'></div>
+    <script>
+    //Dentro de script es que creamos la funcion; lo que hara es mediante la declaracion document 
+
+    //Esta funcion mostrara cada valor de value de nuestro formulario y lo mandaremos a imprimir a consola. Y luego lo mostraremos en el mismo documento HTML.
+        function mostrarValores(){
+            let formulario = document.forms['formulario'];
+            let texto ='';
+            for(let elemento of formulario)
+            {
+                texto += elemento.value + '<br/>';
+            }
+            //console.log(texto); Asi imprimimos en consola, ahora lo imprimiremos en el mismo documento HTML 1)Creamos un div 2)Le asignamos un id 3)Mediante la declaracion document.getElementById('valores') apuntamos hacia ese id para posteriormente escribir en el valor mediante .innerHTML; igualando al valor que aloja texto. Quedara asi:
+
+            document.getElementById('valores').innerHTML = texto;
+
+            //Aclaracion: De esta manera, tambien se interpretara el salto de linea /br que en consola antes mostraba sin ejecutar, pero estando el llamado mediante el div html si lo hara.
+        }
+    </script>    
+
+</body>
+</html>

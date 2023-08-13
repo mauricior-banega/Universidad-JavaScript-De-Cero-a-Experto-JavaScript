@@ -1,0 +1,65 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 20-09
+
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 9) Accediendo a los elementos del Formulario de manera Individual con JS
+-Veremos como acceder 
+- ACLARACIONES: 
+
+-Seguimos con el mismo index (20-08) para seguir ejemplificando los soguientes temas.
+-----------------------------------------------------------------------------------------
+
+(1*) Un form es un arreglo (array) porque posee varios elementos. Por ello es que accedemos a los elementos de el; en este caso el elemento "nombre" mediante la declaracion completa asi: let nombre = formulario['nombre'];
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Ejemplo DOM con Javascript</title>
+
+</head>
+<body>  
+    <form  id='formulario'> 
+        Nombre: <input type='text' name='nombre' value='Juan'/>
+    </br>
+        Apellido: <input type='text' name='apellido' value='Perez'/>
+    </br>
+
+    </form>
+
+
+    <button onclick='mostrarValores()'>Mostrar</button>
+
+    <div id='valores'></div>
+    <script>
+    
+        function mostrarValores(){
+            let formulario = document.forms['formulario'];
+            let texto ='';
+
+            //Con estas declaraciones recuperamos los elementos de nombre/apellido, osea el input text de nombre y apellido, pero no el valor que ellos contienen(Juan/Perez). Para hacerlo hay que declarar ej texto= nombre.value para que en texto aloje el valor que nombre.value contiene, concatenamos tambien para mostrar apellido.
+            
+            let nombre = formulario['nombre']; //(1*)
+            let apellido = formulario['apellido']; 
+
+            //De esta manera:
+            texto = nombre.value + '</br>' + apellido.value;
+
+            document.getElementById('valores').innerHTML = texto;
+
+        }
+    </script>    
+
+</body>
+</html>

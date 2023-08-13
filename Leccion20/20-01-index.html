@@ -1,0 +1,72 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 20-01/02/03/04
+
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 1) DOM (Document Object Model) en HTML aplicado en JS.
+Video 2) Creacion de un Documento HTML (Atajo; para crearlo precionamos !+TAB y creara automaticamente la estructura HTML).
+Video 3)  Accediendo al DOM HTML con JavaScript.
+Vdeo 4) Modificando el DOM HTML con JavaScript.
+
+- ACLARACIONES: 
+
+1-Dejamos una foto en la carpeta donde muestra la estructura de un DOM. Donde cada elemento es un objeto y por ello poseen atributos o propiedades y metodos, del cual podremos acceder a cada uno de ellos, modificarlos o eliminarlos desde JS.
+
+2- Nos explica que si bien podemos acceder y ejecutar para ver un HTML desde el navegador habiendo ejecutado el XAMPP tambien podemos acceder desde el mismo Visual Code. Debemos tener abierto la carpeta donde esta el archivo desde VSC, y ejecutamos abajo a la izq en (Go Live) y se abrira una ventana en Chrome abriendo el HTML.
+
+-----------------------------------------------------------------------------------------
+
+(1*)Etiqueta "script", dentro de ella realizamos ejecuciones JS. Podemos crear otro documento JS aparte y hacer el llamado solamente, pero para el ejemplo.
+
+(2*) El "script" se recomienda siempre estar antes de cerrar el /body para que afecte o pueda afectar a cualquier elemento del HTML sin dejar a ninguno por fuera, para que queden todos por arriba. Esto es porque si queremos acceder a algun elemento que esta debajo de un script y el script quiere hacer alguna accion con el, esto no funcionara por que el llamado esta antes de creado el elemento.
+
+(3*) ID significa; identificador.
+
+(4*) Metodo para acceder al DOM de HTLM, a los elementos. Hay otros metodos que veremos mas adelante, ej  document.getElementById('cabecero'). Pero esto devuelve todo el objeto entero, ya que cada el body/h1/p son objetos, pero no nos devuelve el texto que contiene "cabecero", osea Ejemplo DOM con JavaScript. Para hacer el llamado y obtener el valor usamos el metodo .innerHTML;. INNER significa, INTERNO.
+
+(*5) Podemos declarar .innerHTML en la declaracion del document, o sino tambien dentro del metodo de la impresion.
+(i) Recordamos: 
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8"> <!--Este meta permitira reconocer los acentos, lo dejamos. -->
+    <title>Ejemplo DOM con Javascript</title>
+</head>
+<body>
+    <h1 id='cabecero'>Ejemplo DOM con JavaScript</h1> <!--(*3)-->
+    <p id='parrafo'>Saludos!</p>  
+
+    <script> //(1*) (2*)
+
+    //Para traer el valor contenido en cada etiqueta, creamos unavariable que alojara el valor, luego usamos document.getElementById para accerder al ID y luego el nombre del ID + la propiedad que extraera el valor contenido (.innerHTML).
+        let cabecero = document.getElementById('cabecero');//(*4)(*5 asi o) let cabecero = document.getElementById('cabecero').innerHTML; y en la impresion como se ve.
+
+        let parrafo = document.getElementById('parrafo');
+
+        //console.log('Valor cabecero: ' +cabecero.innerHTML); Podemos imprimir asi o bien aplicando Template Literals, del cual cambiaremos cara impresion.
+
+        console.log(`Valor cabecero: ${cabecero.innerHTML}`);
+        console.log(`Valor parrafo: ${parrafo.innerHTML}`);
+        console.log('Saludos desde Javascript');
+
+        //Modificamos el valor del parrafo, de esta manera. Lo comentamos para seguir con demas aplicaciones 
+
+            //  parrafo.innerHTML = 'Nuevo valor del párrafo';
+            //  cabecero.innerHTML = 'Nuevo Cabecero';
+
+        
+
+    </script>
+
+</body>
+</html>

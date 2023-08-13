@@ -1,0 +1,134 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21
+
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 1) Aplicación Calculadora con JavaScript y Bootstrap.
+       2) Configuración Inicial Aplicación Calculadora con JavaScript y Bootstrap.
+       3) Agregar un Formulario a la aplicación Calculadora con JavaScrip
+
+    -Crearemos una calculadora, que realizara la operacion basica de la suma. Se cargaran 2 numeros de los cuales mediante un boton se activara la operacion de suma y se mostrara como resultado.
+
+    -Ademas utilizaremos el framework Boostrap (de CSS) para mejorar la visualizacion del contenido de nuestra pagina web.
+
+
+
+
+- ACLARACIONES: 
+
+1-
+
+-----------------------------------------------------------------------------------------
+
+(1*) 
+-Antes de crear el archivo HTML mediante el atajo !+TAB (que crea automaticamente una esstructura basica HTML), lo elegiremos desde la web de Boostrap.
+-Ingresamos a la web de Boostrap (getboostrap.com). Luego en Home, tocamos en el boton "Get started", veremos una breve explicacion de como se ituliza este framework para CSS/HTML/JAVASCRIPT etc; pero si bajamos veremos con el titulo "Starter template" una plantilla de inicio HTML de la que copiamos y pegamos a nuestro proyecto. 
+-Esta platilla trae todo lo que necesitamos para hacer nuestra calculadora, con graficos potentes y de calidad, eliminaremos las etiquetas que no vallamos a eusar y listo. Dejare un ej de como queda final la platilla con solo lo que usaremos:
+
+Enlace web : https://getbootstrap.com/docs/5.2/getting-started/rtl/#required-html
+
+Documento modificado por mi para usar en Aplicacion Calculadora:
+
+                <!doctype html>
+                <html>
+                <head>
+                    
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-7mQhpDl5nRA5nY9lr8F1st2NbIly/8WqhjTp+0oFxEA/QUuvlbF6M1KXezGBh3Nb" crossorigin="anonymous">
+
+                    <title></title>
+                </head>
+                <body>
+                    
+                    <h1></h1>
+                    
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+                    <script src='js/app.js'></script>
+
+                </body>
+                </html
+
+
+(2*) - Creamos el formulario <form, asignamos un identificador "forma". Dentro del creamos una caja div que contendra una clase del tipo Boostrap (de palabra reservada) de nombre: mb-3 (siglas del ingles "margin bottom) donde 3 indicaria el margen que tendra la ubicacion grafica de este div, para que no queden juntos nuestros elementos. Sin necesidad de usar </br, osea saltos de linea en el documento para que se vea ordenado.
+
+    Adjunto link de Boostrap con la guia de espacios: 
+    https://getbootstrap.com/docs/5.0/utilities/spacing/
+    
+
+(3*) - El elemento es del type "number", esto significa que solo admitira numeros solamente, a diferencia de los que vimos que eran del tipo "text" que admitian texto y numeros. Ademas, se asigna a una clase 'form-control' (codigo Boostrap reservado) que hace que el imput sea mas pro graficamente (esquinas redondeadas de la caja, con contorno celeste al seleccionar el input). Un placeholder que mostrara en clarito, aclarando lo que debe de ingresarse dentro de ese input.
+
+(4*) - Creamos el boton que llamara a la accion de la suma, lo creamos tipo "submit":
+
+button type="submit" class='btn btn-prymary mb-3' onclick="sumar()"
+
+...ya que esta (por ahora dentro de un formulario), pero este no nos conviene ya que este se refresca y borra los datos cargados en el documento una vez que presionamos sobre.Esto se da porque este tipo de boton envia el documento en este caso el form, desde nuestra web a un servidor para regresar el dato resultante, pero al estar usando la PC osea un navegador web (XAMPP/Go Live de VSC) ES y no un SERVIDOR. 
+
+
+    -De modo que nos sirve mas que luego de presionar queden los numeros ingresados anteriormente, es que creamos un boton comun NO SUBMIT que colocaremos fuera del formulario.
+    -Podemos asignarle un estilo piola desde Boostrap; dejo listado botones desde su web: 
+        https://getbootstrap.com/docs/5.0/components/buttons/
+
+(5*) - 
+-->
+
+
+<!doctype html>
+<html>
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-7mQhpDl5nRA5nY9lr8F1st2NbIly/8WqhjTp+0oFxEA/QUuvlbF6M1KXezGBh3Nb" crossorigin="anonymous">
+
+    <title>Aplicación Calculadora</title>
+  </head>
+  <body>
+
+    <div class='container'>
+    <h1>Aplicación Calculadora</h1>
+    
+    <form id='forma'> <!-- Formulario -->
+        
+        
+        <div class='mb-3'><!-- (2*)-->
+            <label for='operandoA'>Operando A</label>
+            <input type="number" class='form-control' placeholder="Escribe operando A" id='operandoA'/> <!-- (3*)-->
+        </div>
+
+        <div class='mb-3'>
+            <label for='operandoB'>Operando B</label>
+            <input type="number" class='form-control' placeholder="Escribe operando B" id='operandoB'/> 
+        </div>
+
+    </form>
+
+        <!-- Boton Sumar sin "submit"-->
+
+        <button class='btn btn-primary mb-3' onclick='sumar()'>Sumar</button> <!-- (4*)-->
+
+        <!-- Caja DIV "vacia" que mostrara posteriormente el resultado.-->
+
+        <div id='resultado'></div>   
+
+
+
+    </div>
+    <!-- Llamado a los script Javascript de Boostrap - Opcion 1 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <!-- Llamado a nuestro script Javascript -->
+    <script src='js/app.js'></script>
+
+
+  </body>
+</html>

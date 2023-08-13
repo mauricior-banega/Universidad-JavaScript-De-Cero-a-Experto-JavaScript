@@ -1,0 +1,75 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21-08
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: Video 8) Método addEventListener en JavaScript con  JS. Ademas de reemplazar los eventos antes declarados en el objeto directamente a JavaScript.
+
+-Similar al ejercisio anterior 21-07.
+
+-Lo que haremos sera declarar desde JS todos los eventos que aplicaremos en nuestro documento, en este caso a los inputs nombre/apellido mediante sus indentificadores. una vez identificados mediante getElementById le adjuntamos el metodo addEventListener que sirve para añadir todos los eventos que estos tendran. Ademas llamaremos a una funcion del tipo callback "cambiar" de la que no lleva () porque sera una variable de la funcion.
+
+-Dentro de esta funcion guardaremos en el parametro "evento" el evento justamente focus. Accedemos a el mediante evento.target, y posterior lo asignamos a una variable llamada componente, que es la que usaremos para decir que el focus ya identificado se ejecute al estilo de fondo de ese input, a color amarrillo "componente.style.backgroud ='yellow';".
+
+- ACLARACIONES:
+
+(1*) - Cuando llamamos a un evento desde el Metodo addEventListener, estos no van con el pseudonimo "on", se lo quita de forma que quede solo el nombre del evento ej: onclick/onblur/onmouseup se declara click/blur/mouseup etc.
+
+
+
+-----------------------------------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+
+    <!-- -->
+
+    <h1 id="titulo" > Manejo DOM con Javascript </h1>
+
+    </br>
+        <!-- Aplicamos ambos eventos a cada input -->
+        Nombre: <input type="text" id="nombre"/>
+    
+    </br></br>
+
+        Apellido: <input type="text"id="apellido"/>
+
+        <script>
+            
+            document.getElementById('nombre').addEventListener('focus',cambiar); //(1*)
+            document.getElementById('nombre').addEventListener('blur',regresar);
+
+            document.getElementById('apellido').addEventListener('focus',cambiar);
+            document.getElementById('apellido').addEventListener('blur',regresar);
+
+            function cambiar(evento)
+            {
+                let componente = evento.target;
+                componente.style.background = 'yellow';
+            }
+
+            function regresar(evento)
+            {   
+                //De esta forma se podria declarar, distinto al la codif de arriba. Asi es mas corto, pero a modo de explicacion es como definimos el anterior.
+
+                evento.target.style.background = 'white';
+            }
+
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21-09
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: Video 9) Funciones Flecha en addEventListener con JS.
+
+-En esta leccion basicamente lo que hace es cambiar la funcion callback por una flecha (anónima), pero explica que no conviene ya que no se puede reutilizar, es decir que como vemos esta aplicado para nombre, pero si quisieramos aplicarlo para apellido tendriamos que declarar tambien lo mismo (evento)=>{evento.target.style.background='';} en vez de solo poner el nombre de la funcion flecha, como estaba antes en el 21-8.
+
+
+-Similar al ejercisio anterior 21-08.
+
+- ACLARACIONES:
+
+(1*) -
+
+-----------------------------------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+
+    <!-- -->
+
+    <h1 id="titulo" > Manejo DOM con Javascript </h1>
+
+    </br>
+        <!-- Aplicamos ambos eventos a cada input -->
+        Nombre: <input type="text" id="nombre"/>
+    
+    </br></br>
+
+        Apellido: <input type="text"id="apellido"/>
+
+        <script>
+
+            //Para nombre mostramos como tambien se puede hacer con funcion flecha la ejecucion del evento, pero no se podria reutilizar.
+
+            document.getElementById('nombre').addEventListener('focus', (evento)=>{evento.target.style.background='pink';}); 
+
+            document.getElementById('nombre').addEventListener('blur', (evento)=>{evento.target.style.background='';});
+
+
+
+            document.getElementById('apellido').addEventListener('focus',cambiar);
+            document.getElementById('apellido').addEventListener('blur',regresar);
+
+            
+            function cambiar(evento)
+            {
+                let componente = evento.target;
+                componente.style.background = 'yellow';
+            }
+
+            function regresar(evento)
+            {   
+                //De esta forma se podria declarar, distinto al la codif de arriba. Asi es mas corto, pero a modo de explicacion es como definimos el anterior.
+
+                evento.target.style.background = 'white';
+            }
+
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 20-06
+
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 6) Metodo getElementsByClassName con JS
+
+-Aqui recuperaremos todos los elememtos HTML que contenga una cierta clase del tipo CSS
+
+- ACLARACIONES: Para cambiar de nombre de una variable que ya esta recplicada por mucho codigo ya escrito, ej: cambiar erl nombre de la variable parrafo a elelemto (como esta en varios lados asi definido) podemos usar esta herramienta de VSC. Click derecho en la palabra seleccionada y seleccionar en "Cambiar todas las ocurrencias". Se pintaran todas las palabras del mismo nombre "ej parrafo" y nos si cambiamos el nombre se aplica a todas las otras palabras iguales.
+
+-Seguimos con el mismo index (20-05) para seguir ejemplificando los soguientes temas.
+-----------------------------------------------------------------------------------------
+
+(1*)
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8"> 
+    <title>Ejemplo DOM con Javascript</title>
+
+    <!--Creamos una clase CSS que dara color azul a elementos del cocumento HTML-->
+    <style>
+        .azul{color: blue;}
+    </style>     
+
+
+
+</head>
+<body>
+    <h1 class='azul'>Ejemplo DOM con JavaScript</h1> 
+    <p class='azul'>Saludos!</p>
+    <p class='azul'>Otro parrafo</p>    
+
+    <script> 
+    
+        let elementos = document.getElementsByClassName('azul');
+        //Aca nos mostrara cuantos elementos del HTML tiene aplicado la clase 'azul'
+
+        console.log(`Nº de elementos: ${elementos.length}`);
+
+       /* Sintaxis clasica "for"; pero tambien podemos reemplazarla por la otra "for of" que es mas pro. Comentamos esta
+
+        for(let i=0; i<elementos.length; i++)
+        {
+            console.log(`i:${i} - ${elementos[i].innerHTML}`);
+        }
+
+        */
+
+        //Creamos un ciclo for + creamos una variable (elemento) que va a alojar cada valor de elementos + of y el arreglo que queremos iterar.
+        for (let elemento of elementos)
+        {
+            console.log(`Elemento: ${elemento.innerHTML}`);
+        }
+
+    </script>
+
+</body>
+</html>

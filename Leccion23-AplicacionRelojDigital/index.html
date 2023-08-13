@@ -1,0 +1,66 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 23
+
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: Aplicación Reloj Digital con JavaScript con JS
+
+ 1)Código HTML del Reloj Digital con JavaScript
+
+2)Código CSS del Reloj Digital con JavaScript
+
+3)Código JavaScript del Reloj Digital con JavaScript
+
+4)Finalizando Aplicación Reloj Digital con JavaScript
+
+- ACLARACIONES: 
+
+1-
+
+-----------------------------------------------------------------------------------------
+
+(1*) El codigo setInterval lo ejecutamos en JS porque de manera que la funcion flecha mostrarReloj funciona, se ejecuta una sola vez, durante un segundo y despues queda parado ya que muestra el dato en el momento pero no se actualiza segundo a segundo de forma reiterada de manera que podamos ver los cambios, el avance de la hora. Por ello es que tenemos que actualizarlo cada instante (1000ms=1s)mediante ese codigo y podamos verlo en la aplicacion.
+
+(2*) Creamos la funcion const formatoHora = (hora) => para establecer que tanto hr/min o seg tengan un solo digito, osea tenga un solo nº (<10), entonces se le agregue un 0 y no quede mostrando solo un digito sino muestre: 01/02/03/04 etc. Para ello, envolvemos el llamado de cada elemento de hora ej: fecha.getSeconds(); con la funcion formatoHora; de esta manera quedara asi definitivo: 
+
+let hr = formatoHora(fecha.getHours());
+
+(3*) No entiendo como si del codigo = dias[fecha.getDay()]; devuelve un nº del arreglo (puediendo ser este mayor a los 7 elementos) interpretandose = dias[1 o 2 o 3 etc] pero si recibe un 8, vuelve de nuevo a "Dom"? Como sabe que ese dia X corresponde al dia de hoy? Seguro con algunos de todos los codigos reservados que puse pero no entiendo su correcto funcionamiento interno.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Digital</title>
+
+    <link href="css/estilo.css" rel="stylesheet"/>
+
+
+</head>
+<body>
+    
+    <div id='reloj'>
+
+        <div class="reloj-contenedor" id='contenedor'>
+            
+            <div id="hora">Reloj Digital</div>
+
+            <div id="fecha">con JavaScript</div>
+
+        </div>
+
+    </div>
+
+    <script src="js/reloj.js"></script>
+</body>
+</html>

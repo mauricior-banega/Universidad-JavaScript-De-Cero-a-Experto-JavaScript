@@ -1,0 +1,50 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 20-13
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 13) Cambio de Estilo CSS con JavaScript
+
+-Lo que haremos es mediante un boton con evento onclick, cambiar el color de h1 a azul. Osea, modificar el CSS del documento, mediante el uso de la propiedad style (css) + .color (una de las propiedades de css).
+
+- ACLARACIONES:
+
+
+-----------------------------------------------------------------------------------------
+
+(1*) 
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+    <h1 id='titulo'>Manejo DOM con Javascript</h1>
+
+    <button onclick="mostrar()">Mostrar</button>
+
+    </br>
+    
+        <script>
+
+            function mostrar()
+            {
+                document.getElementById('titulo').style.color = 'blue';
+            }
+        </script>
+</body>
+
+</html>

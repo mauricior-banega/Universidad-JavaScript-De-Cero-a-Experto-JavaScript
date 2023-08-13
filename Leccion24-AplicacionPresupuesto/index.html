@@ -1,0 +1,306 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 24
+
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: Aplicación Web Presupuesto con JS
+
+1) Configuración Inicial Aplicación Presupuesto con JavaScript
+2) Cabecero HTML Aplicación Presupuesto
+3) Creación de Clases Aplicación Presupuesto
+4) Creación Arreglos de Ingresos y Egresos
+5) Cabecero con JavaScript de la Aplicación Presupuesto
+6) Formato Moneda y Porcentaje con JavaScript
+7) Listado de Ingresos con HTML
+8) Búsqueda de Íconos en ionicons.com
+9) Listado de Egresos con HTML
+10) Listado de Ingresos con JavaScript
+11) Listado de Egresos con JavaScript
+12) Eliminar un Ingreso con JavaScript
+13) Eliminar un Egreso con JavaScript
+14) Formulario Agregar Nuevo Ingreso-Egreso con JavaScript
+15) Finalizando la Aplicación de Presupuesto con JavaScript
+16) Formato de Moneda Internacional con JavaScript
+
+- ACLARACIONES: 
+
+1-Se recomienda que a los archivos JS que CONTENGAN CLASES, su nombre comienza con Mayusculas (Ej:Dato/Ingreso/Egreso) para poder indentificarlas de primera mano, a diferencia del archivo app.js que esta en Minusculas porque asi indicamos que no lo tiene, solo contiene la parte funcional/logico de nuestro proyecto.
+
+-----------------------------------------------------------------------------------------
+
+(1*) Vemos que a la clase le agrega otra clase "limpiarEstilos" (se agrega dejando un espacio), esto es para justamente limpiar los estilos de alguna clase especifica que hallamos utilizado previamente, para que no se superpogan propiedades desde CSS.
+
+(2*) La busqueda de fuente la realizo entrando a https://fonts.google.com/ y eligiendola, a la izquieda hay un apartado que indica par CSS : Usar en la web,
+y el codigo completo de @importar. Ademas, de ello en el font-family hay que especificar lo que indica en: Reglas CSS para especificar familias osea para nuestro ejemplo('Ubuntu', sans-serif;).
+
+(2*) Como asignamos id en algunas clases, que son en donde haremos llegar los valores ingresados de forma dinamica atravez de los inputs.
+
+(3*) Creamos la funcion onload "cargarApp", que como definimos sirve para ejecutarse cuando se ponga en funcionamiento el body. Luego crearemos la funcion cargarCabecero() que lo que hara sera refrecar los datos que vallamos cargando y que se refleje en el cabecero tambien, con el presupuesto total actualizado.
+
+(4*) Aclarado en app.js.
+
+(5*) Formato tipo Moneda en JS: Aplicaremos el concepto "Intl" de Internacionalization o "I18n". Veremos como dar formato a nuestros nº, en formato de moneda, como en porcetaje, sin embargo este concepto es mas amplio, puede aplicar a fechas entre otros conceptos. Lo haremos mediante la declaracion en la f() toLocaleString('es-AR') pero podemos definir el idioma y la region ej: en-US/en-GB/es-MX/es-ES/es-AR, etc.
+
+(6*) CODIGO ESTATICO: Creamos el div lista-ingresos que contendra los valores de la lista precisamente, pero de primera mano crearemos objetos estaticos para poder mostrar si funciona y como queda graficamente en HTML el listado. Por sigueinte crearemos los objetos dinamicamente desde JS. Esto tambien utilizamos cuando creamos anteriomente en app.js el codigo estatico de los arreglos ingresos/egresos (que luego quitaremos) una vez que tengamos los objetos dinamicos listos para crear/cargar.
+
+(7*) Esta seccion contiene un div que a su vez contiene un boton, pero el icono de este boton explicamos, lo extraemos de la web http://ionic.io, luego en "Usage", copiamos los script que aparecen en Installation (antes del cierre del body). Ademas, en el boton, para darle la imagen al boton (icono) debemos de declarar como quedara: <ion-icon name='close-outline'></ion-icon> que es una X basicamente.
+
+(8*) Ampliamos de lo que trata esta parte, como eliminar un elemento de ingresos cargado. Basicamente creamos una funcion que añade onlick, esta borra el elemento de ingreso seleccionado ubicando el id que correspondiente a el. Explicamos
+
+        1-El primer paso es en el archivo JS app.js nos dirigimos hacia la funcion crearIngresoHTML y alli en la parte HTML de Ingreso en la declaracion sobre el boton agregamos una funcion "onclick" para que al cliequear active la funcion eliminarIngreso() . Cabe aclarar que como estamos en un archivo JS y no HTML Visual SC no nos marcara ningun error, por ello es que hay que tener cuidado al momento de hacer la declaracion.
+
+        onclick='eliminarIngreso(${ingreso.id}
+
+        2)Luego creamos la funcion flecha eliminarIngreso(id), le haremos llegar el paramentro id porque trabajaremos con el logicamente para buscar el id correspondiente. Dentro llamamos al arreglo "ingresos" y al metodo "findIndex()". Este metodo actua como la sentencia ya utilizada for of; ej: for (let ingreso of ingresos). Basicamente findIndex busca dentro de ingresos algo, buscara la variable/funcion flecha "ingreso" que alojara el resultado de la busqueda de ingreso.id con id. Una vez escontrado el elemento en base a su id como vimos guardaremos ese id coincidente en "indiceEliminar".
+
+                    let indiceEliminar= ingresos.findIndex(ingreso => ingreso.id ===id);
+
+        3)Posterior declaramos ingresos (para que elimine con el siguiente metodo el array ingresos), seguido del metodo "slice(posicion,nº de elementos a eliminar)" del cual se le pasa el pocision del array+cantidad de elementos a eliminar apartir de ese nº.
+        Entonces dentro hacemos llegar el id que aloja la busqueda (indicaEliminar) seguido del nº de elementos apartir de el para eliminar (1). Quedando:
+                    
+                    ingresos.splice(indiceEliminar, 1);.
+
+        4)Por ultimo, cargamos dentro de "eliminarIngreso" las funciones, cargarCabecero() y cargarIngresos() ya que al eliminarse esto genera cambios dentro de nuestra aplicacion que deberan ser actualizados y mostrados nuevamente.
+
+        5)Aplicamos los mismos conceptos y arquitectura para elimiarEgresos().
+
+(9*) Formulario (Agreagacion de elementos: Ubicado al medio del documento, entre cabecero y contenedor). 
+
+    -En el formulario agregaremos botones/inputs para poder agregar esos elementos que queramos. Se declara ademas el metodo [onsubmit='return false;'], para que los datos que cargamos no se borren, luego de tocar el boton + de agregacion, es decir que no haga el "SUBMIT". Esto lo hace porque como es un formulario, todos los datos que envie/procese como ingresos los quita y los envia a un servidor "que no tenemo" ya que estamos trabajando "desde el lado del cliente" osea el navegador web.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicacion Presupuesto</title>
+    <link href="css/estilos.css" rel="stylesheet">
+</head>
+<body onload='cargarApp()'> <!--(3*)-->
+
+    <!--Estructura de Divs de la (caja rosa) que muestra el Presupuesto $ + Total de Ingresos/Total de Egresos y % -->
+    <div class="cabecero">
+
+        <div class="presupuesto">
+
+            <div class="presupuesto_titulo">Presupuesto Disponible</div>
+
+            <div class="presupuesto_valor" id='presupuesto'>+ 2,000.00</div>
+
+            <!--Div`s de los Ingresos-->
+            <div class="presupuesto_ingreso limpiarEstilos"> <!--(1*)-->
+                    <div class="presupuesto_ingreso--texto">Ingresos</div>
+                    <div class="derecha">
+                        <div class="presupuesto_ingreso--valor" id='ingresos'>+4,000.00</div>
+                        <div class="presupuesto_ingreso--porcentaje">&nbsp;</div> <!--&nbsp; Que es? Es espacion en blanco-->
+                    </div>
+            </div>
+
+            <!--Div`s de los Egresos-->
+            <div class="presupuesto_egreso limpiarEstilos">
+                    <div class="presupuesto_egreso--texto">Egresos</div>
+                    <div class="derecha limpiarEstilos">
+                        <div class="presupuesto_egreso--valor  " id='egresos'>-1,900.00</div> <!--(2*)-->
+                        <div class="presupuesto_egreso--porcentaje" id='porcentaje'>%45</div>
+                    </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <form id='forma' onsubmit="return false;"> <!--(9*)-->
+
+        <div class="agregar">
+
+            <div class="agregar_contenedor">
+
+                <select class='agregar_tipo' id='tipo'>
+
+                    <option value='ingreso' selected>+</option> 
+                    <!--La declaracion "selected": Sirve para definir que ese valor sera el que este como opcion por defecto.-->
+
+                    <option value='egreso'>-</option> 
+
+                </select>
+
+                <input type='text' class='agregar_descripcion'
+                placeholder='Agregar Descripción' id='descripcion'/>
+
+                <input type='number' class='agregar_valor' placeholder='Valor' id='valor' step='any'/>
+
+                <!--La declaracion "step='any'": Sirve para que el input acepte valores numericos con decimales, de otra manera tomara solo enteros.-->
+                <button class='agregar_btn' onclick="agregarDato()">
+
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        <!--Cargamos otro el icono un "checkmark" desde ionicons.com-->
+                </button>
+                
+            </div>
+                
+        </div>
+
+    </form>
+
+
+
+
+<!--Estructura de Divs que estaran debajo de la (caja rosa) osea en blanco graficamente, que mostrara Agregar Descripcion + Listado de Ingresos/Egresos  -->
+
+    <div class="contenedor limpiarEstilos" > <!--Contenedor general que esta debajo-->
+
+        <div class="ingreso"> <!--Ingreso (Estructura de DIVS)-->
+
+            <h2 class='ingreso_titulo'>Ingresos</h2>
+
+            <div id='lista-ingresos'> <!--(6*)-->
+
+    <!--    Desactivamos esta declaracion; ya creamos DINAMICAMENTE. 
+
+                <div class="elemento limpiarEstilos"> 
+    
+                    Elemento estatico Salario (comentario)
+
+                    <div class="elemento_descripcion">Salario</div> 
+                    
+                    <div class="derecha limpiarEstilos">
+
+                        <div class="elemento_valor">+2,200.00</div>
+
+                        DIV para Eliminar Articulo "Ingreso" (comentario)
+
+                        <div class="elemento_eliminar">
+
+                            (7*) (comentario) 
+
+                            <button class='elemento_eliminar--btn'>
+                                <ion-icon name='close-outline'></ion-icon>
+                            </button>
+
+                        </div>
+
+                    </div> 
+
+                </div>
+
+
+                <div class="elemento limpiarEstilos"> 
+
+                    Elemento estatico Venta de coche (comentario)
+            
+                    <div class="elemento_descripcion">Venta de coche</div> 
+                    
+                    <div class="derecha limpiarEstilos">
+
+                        <div class="elemento_valor">+1,500.00</div>
+
+                        DIV para Eliminar Articulo "Ingreso" (comentario)
+
+                        <div class="elemento_eliminar">
+
+                            (7*) (comentario)
+
+                            <button class='elemento_eliminar--btn'>
+                                <ion-icon name='close-outline'></ion-icon>
+                            </button>
+                        </div>
+                    </div> 
+
+                </div>
+    -->
+
+            </div>
+
+        </div>
+
+
+
+        <div class="egreso"> <!--Egreso (Estructura de DIVS), "igual que la de ingresos en arquitectura". -->
+
+            <h2 class='egreso_titulo'>EGRESOS</h2>
+
+            <div id="lista-egresos">
+            
+    <!--  Desactivamos esta declaracion; ya creamos DINAMICAMENTE. 
+
+                <div class="elemento limpiarEstilos">
+
+                    <div class="elemento_descripcion">Renta departamento</div> 
+                    
+                    Elemento estatico Renta departamento (comentario)
+
+                    <div class="derecha limpiarEstilos">
+
+                        <div class="elemento_valor">-900.00</div>
+                        <div class="elemento_porcentaje">21%</div>
+                        <div class="elemento_eliminar">
+
+                            <button class='elemento_eliminar--btn'>
+
+                                <ion-icon name='close-outline'></ion-icon>
+
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            
+
+                <div class="elemento limpiarEstilos">
+
+                    <div class="elemento_descripcion">Ropa</div> 
+                    
+                    Elemento estatico Ropa (comentario)
+
+                    <div class="derecha limpiarEstilos">
+
+                        <div class="elemento_valor">-400.00</div>
+                        <div class="elemento_porcentaje">10%</div>
+                        <div class="elemento_eliminar">
+
+                            <button class='elemento_eliminar--btn'>
+
+                                <ion-icon name='close-outline'></ion-icon>
+
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+    -->
+
+            </div>  
+
+        </div>
+
+
+    </div>
+
+    <script src='js/Dato.js'></script>
+    <script src='js/Ingreso.js'></script>
+    <script src='js/Egreso.js'></script> 
+    <script src='js/app.js'></script>
+
+    <!--(8*)-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>   
+
+</body>
+
+</html>
+

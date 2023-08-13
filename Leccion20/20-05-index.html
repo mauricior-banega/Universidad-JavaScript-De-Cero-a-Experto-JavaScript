@@ -1,0 +1,53 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 20-05
+
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 5) Metodo getElementsByTagName con JS
+
+- ACLARACIONES: 
+
+-Seguimos con el mismo index (20-01) para seguir ejemplificando los soguientes temas.
+-----------------------------------------------------------------------------------------
+
+(1*)
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8"> 
+    <title>Ejemplo DOM con Javascript</title>
+</head>
+<body>
+    <h1 id='cabecero'>Ejemplo DOM con JavaScript</h1> 
+    <p id='parrafo1'>Saludos!</p>
+    <p id='parrafo2'>Otro parrafo</p>    
+
+    <script> 
+
+        //Con este metodo podemos guardar el contenido pero no de id como vimos, sino del tagname que seria h1 o p en este caso. Nos devolvera seguramente un arreglo "array", y por eso creamos una variable que alojara cada valor y lo miostraremos mediante un "for in" que recorrera p.lenght, guardando asi todos y cada uno de los contenidos para los "p".
+
+        let parrafos = document.getElementsByTagName('p');
+        //Aca nos mostrara cuantos p existen, osea 2. Pero, apra mostrar el contenido de cada p, lo veremos a continuacion.
+        console.log(`Nº de parrafos: ${parrafos.length}`);
+
+        //Aca guardaremos cada valor de p en un arreglo que imprimira 1 a 1 los valores que posee. Creamos un for, que recorre cada elemento p y se guardara en la variable parrafos. A medida que valla recirriento imprimira en consola y recorrera el array creado para parrafos de uno en uno.
+        for(let i=0; i<parrafos.length; i++)
+        {
+            console.log(`i:${i} - ${parrafos[i].innerHTML}`);
+        }
+
+
+    </script>
+
+</body>
+</html>

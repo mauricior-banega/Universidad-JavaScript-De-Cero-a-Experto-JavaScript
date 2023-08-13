@@ -1,0 +1,64 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21-07
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: Video 7) Eventos onfocus y onblur con JavaScript con  JS.
+-El evento onfocus realiza la tarea de hacer foco al hacer click en una caja de texto. Y onblur hace foco al tocar fuera de una caja de texto.
+
+-Para este practico aplicaremos estos dos eventos dandole color amarillo a onfocus y blanco (volviendo al color por defecto osea normal) cuando salimos de la caja de texto y por ende activando el evento onblur.
+
+- ACLARACIONES:
+
+(1*) - 
+
+
+-----------------------------------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+
+    <!-- -->
+
+    <h1 id="titulo" > Manejo DOM con Javascript </h1>
+
+    </br>
+        <!-- Aplicamos ambos eventos a cada input -->
+        Nombre: <input type="text" onfocus="cambiar(this)" onblur="regresar(this)"/>
+    
+    </br></br>
+
+        Apellido: <input type="text" onfocus="cambiar(this)" onblur="regresar(this)"/>
+
+        <script>
+
+            //En cada funcino haremos que cambie de color segun se ejecute determinada funcion.
+            
+            function cambiar(elementoInput)
+             {
+                elementoInput.style.background = 'yellow';
+             }
+
+             function regresar(elementoInput)
+             {
+                elementoInput.style.background = 'white';
+             }
+
+        </script>
+</body>
+
+</html>

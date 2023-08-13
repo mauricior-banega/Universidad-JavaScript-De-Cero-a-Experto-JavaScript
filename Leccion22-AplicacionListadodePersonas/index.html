@@ -1,0 +1,84 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 22
+
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: Aplicacion Listado de Personas con JS
+
+ 1)Aplicación Listado de Personas - Configuración Inicial
+
+2)Listado de Personas Inicial
+
+3)Listado de Personas con JavaScript
+
+4)Formulario Agregar nueva Persona con JavaScript
+
+- ACLARACIONES: 
+
+1-
+
+-----------------------------------------------------------------------------------------
+
+(1*) ATAJO: Para crear un div que contenga una clase de x nombre, escribimos asi a modo de ejemplo: .contenedor+TAB y automaticamente nos crea un div con ese formato HTML, quedando asi: <div class='contenedor'> </div>
+
+(2*) Al boton lo creamos fuera del form, ya que si lo ponemos dentro buscaria enviar estos datos a un servidor que no tenemos porque no estamos haciendo desde la web. por ello se crea por fuera.
+
+(3*) Como vemos la declaracion const forma = document.forms['forma']; es una manera de recuperar los objetos del formulario con identificador 'forma', osea los input, sin necesidad de aplicar el codigo de document.getElementById para cada input.
+
+(4*) Creamos un if validador, ya que sino agregamos ningun campo en nombre/apellido y tocamos en + crea objetos vacios, por ello para que no suceda es que metemos todo el codigo de creacion dentro, preguntando que sea distinto a vacio, si lo es que lo cree, sino que muestre mensaje de rechazo.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Personas</title>
+
+    <link href="css/estilos.css" rel="stylesheet"/>
+
+
+</head>
+
+<body onload="mostrarPersonas()">
+
+    <div class='contenedor' id='cabecero'>
+        <h1>Listado de Personas</h1>
+    </div>
+
+    <div class='contenedor'>
+        <div class='elemento'>
+            <ul id='personas'>
+               <!--<li>Juan Perez</li>--> 
+
+            </ul>
+        </div>
+    </div>
+    
+    <!--Boton de agregar persona (2*)  --> 
+    <div class='contenedor'>
+        <div style="text-align: center;">
+            
+            <button style='cursor: pointer' onclick="agregarPersona()">+
+            </button>
+
+        </div>
+        
+        <form id='forma'>
+            <input type="text" id='nombre' placeholder="Nombre"/>
+            <input type="text" id='apellido' placeholder="Apellido"/>
+        </form>
+    </div>
+
+    <script src='js/persona.js'></script>
+    <script src='js/app.js'></script>
+    
+</body>
+</html>

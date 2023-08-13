@@ -1,0 +1,47 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 20-10
+
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 10) Uso de document.write() con JavaScript
+
+- ACLARACIONES: CUIDADO, este metodo sobre-escribe toda la documentacion HTML como lo mostraremos mas adelante. Pero tiene como fin enviar informacion.
+
+-En la leccion veremos como crear un boton con evento onclick que al apretarlo llama a la funcion document.write nuevamente pero esta sobre-escribe toda la documentacion anterior.
+
+
+-----------------------------------------------------------------------------------------
+
+(1*) 
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+    <h1>Manejo DOM con Javascript</h1>
+    <button onclick="mostrar()">Mostrar</button>
+    </br>
+        <script>
+            document.write('Saludos desde JavaScript');
+
+            function mostrar()
+            {document.write('Adios');}
+        </script>
+</body>
+
+</html>

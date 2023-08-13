@@ -1,0 +1,74 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21-03
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 3) Manejo del Evento "onload" en JS.
+
+-Creamos el evento onload al cargar nuestra pagina. Esto lo asignamos dentro del body de nuestro archivo HTML y llamamos a una funcion "entrar()" que se ejecutara cuando la pagina se cargue. Lo que esta funcion hara sera mostrar una alerta "Entrando a pagina web".
+-Tambien haremos que verifique si cargo la cookies de navegador de forma correcta. En las cookies se pueden almacenar los datos que solicite/necesite la pagina para su correcto funcionamento.
+
+-Se realiza de esta manera; creamos una variable vacia "texto", que luego si se cumple que la cookies esten muestre el mensaje "Cookies estan habilitadas" o Cookies no estan habilitadas. Esto lo haremos mediante un if/else que hara la pregunta mediante el codigo reservado que DA este dato; "navigator.cookieEnabled". Luego mostramos el mensaje atravez del div vacio, alojado en texto el caso.
+
+- ACLARACIONES:
+
+(1*) - 
+
+
+-----------------------------------------------------------------------------------------
+
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body onload="entrar()">  
+
+    <!-- -->
+
+    <h1 id="titulo"> Manejo DOM con Javascript </h1>
+
+    <!---->
+
+    </br>
+
+    <div id='mostrar'></div> <!--Div Vacio-->
+    
+        <script>
+
+            function entrar()
+            {
+                alert('Entrando a la página web');
+                let texto ='';
+
+                if(navigator.cookieEnabled)
+                {
+                    texto = 'Cookies estan habilitadas';
+                }
+                else
+                {
+                    texto = 'Cookies estan inhabilitadas';
+                }
+
+                //No se mostrara en el archivo hasta que no le demos el valor de texto dentro del div que lo mostrara.
+
+                document.getElementById('mostrar').innerHTML = texto;
+            }
+
+        </script>
+</body>
+
+</html>

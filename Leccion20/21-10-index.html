@@ -1,0 +1,76 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21-10
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: Video 9)  Delegación de Eventos con JS.
+
+-En esta leccion explicaremos como agregar eventos a todos los input al mismo tiempo. Esto se realiza si los metemos dentro de un form, y lo realizamos si es lo que deseamos ya que si queremos acceder a unos input si y otros no tendremos que definirlos de manera individual como vimos anteriormente.
+
+-Creamos entonces el formulario con identificador "forma". Creamos dentro de script una variable forma que apuntara hacia ese id mediante el document.getElementById.
+-Luego con la referencia que trae forma concatenamos addEventListener para aplicar en el cada evento que realiza el cambio de color de fondo en cada caso.
+
+forma.addEventListener('focus', (evento)=>{
+               evento.target.style.background = 'pink';
+           },true);
+
+-Al compilar, el instructor muestra que no funciona y es porque no esta aplicada la definicion "true" despues de declarada la funcion flecha. Y esto se solicita porque como forma es una referencia de todo el elemento del formulario y queremos que los cambios se apliquen a elementos DENTRO de el (inputs), es que debemos definir esa palabra reservada para que aplique/funcione. En resumen, sino ponemos true o ponemos false, aplicaria a el elemento form en este caso pero no a sus elementos internos.
+
+-A toda esta explicacion del funcionamiento de "true" se lo conoce como Delegacion de Evento o useCapture. 
+
+-Similar al ejercisio anterior 21-09.
+
+- ACLARACIONES:
+
+(1*) -
+
+-----------------------------------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+    <h1 id="titulo" > Manejo DOM con Javascript </h1>
+
+    <form id='forma'> <!-- Metemos todos nuestros inputs dentro del formulario  -->
+        
+        Nombre: <input type="text" id="nombre"/>
+    
+    </br></br>
+
+        Apellido: <input type="text"id="apellido"/>
+
+    </form>
+
+        <script>
+
+            //Creamos la variable que alojara la referencia del formulario mediante su identificador.
+
+           const forma = document.getElementById('forma');
+
+           //Agregamos los eventos que se aplicaran a cada elemento del formulario, osea los inputs, aplciando la funcion flecha que cambiara de color el fondo para ambos casos.
+
+           forma.addEventListener('focus', (evento)=>{
+               evento.target.style.background = 'pink';
+           },true);
+
+           forma.addEventListener('blur', (evento)=>{
+               evento.target.style.background = '';
+           },true);
+
+        </script>
+</body>
+
+</html>

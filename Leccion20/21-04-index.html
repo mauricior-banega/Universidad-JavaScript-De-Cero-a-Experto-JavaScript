@@ -1,0 +1,61 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21-04
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 4) Manejo del Evento "onchange" en JS.
+
+-Creamos el evento "onchange" que llamara a una funcion nombreImput(). Esta funcion aloja en su paramentro nombreImput todo el elemento "input" ya que pasamos como paramentro tambien this dentro de la funcion del evento onchange.
+-Luego como dijmos nombreInput recibe todo el elemento de "input", con el que accedemos al valor y al igualarlo al lo mismo  = nombreInput.value pero pasado todo a Mayusculas por .UpperCase(). Entonces  el valor que tenga dentro el input, lo pasara a mayusculas.
+
+- ACLARACIONES:
+
+(1*) - 
+
+
+-----------------------------------------------------------------------------------------
+
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+
+    <!-- -->
+
+    <h1 id="titulo"> Manejo DOM con Javascript </h1>
+
+    <!---->
+
+    </br>
+
+    <!--Creamos una entrada de texto, que usaremos luego, asignando el evento onchange, que llama a una funcion pasando el paramentro de todo el elemento 'input' atravez de la referencia this. 
+    -->
+
+    Nombre: <input type="text" onchange="convertir(this)"/>
+
+        <script>
+
+           function convertir(nombreInput) //Funcion que ejecuta onchange, recibe todo el objeto mediante nombreInput que lo aloja.
+           {
+               nombreInput.value = nombreInput.value.toUpperCase(); //Aca se reemplaza a mayuscula el valor que input contiene.
+           }
+
+        </script>
+</body>
+
+</html>

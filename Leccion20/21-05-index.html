@@ -1,0 +1,59 @@
+<!-- 
+    JavaScript (Curso de Udemy) - Cursos complementarios - PARTE 21-05
+    Universidad JavaScript - De Cero a Experto JavaScript!
+
+    Acerca de este curso: Programación Orientada a Objetos, Funciones Flecha, Callback, Promesas, Async, Await, DOM y mucho más!
+
+    Instructor: Ing. Ubaldo Acosta - Global Mentoring 
+
+
+
+ TEMA: 
+Video 5) Eventos onmouseout y onmouseover con JS.
+
+-Creamos el evento "onmouseout", sirve para hacer algo cuando pase el mouse por sobre el elemento. En este caso el titulo h1, haremos que cambie de color a rojo cuando eso suceda pero tambien cambiara de color a azul cuando salquemos el puntero del mouse del titulo, esto se hace con el evento onmouseover donde cada evento tiene un llamado a una funcion que es la que hara el trabajo de cambio de color en este ejemplo.
+
+- ACLARACIONES:
+
+(1*) - 
+
+
+-----------------------------------------------------------------------------------------
+
+
+-->
+
+<!DOCTYPE html>
+<html >
+<head>
+
+    <meta charset="UTF-8"> 
+    <title>Manejo DOM con Javascript</title>
+
+</head>
+
+<body>  
+
+    <!-- En h1 creamos el id y los 2 eventos, a los que se le llamara una funcion para cada caso. -->
+
+    <h1 id="titulo" onmouseover="rojo(this)" onmouseout="azul(this)"> Manejo DOM con Javascript </h1>
+
+    </br>
+
+
+        <script>
+
+           function rojo(titulo) //Funcion que cambia de color a rojo.
+           {
+               titulo.style.color = 'red';
+           }
+
+           function azul(titulo) //Funcion que cambia de color a azul.
+           {
+               titulo.style.color = 'blue';
+           }
+
+        </script>
+</body>
+
+</html>
